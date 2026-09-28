@@ -64,11 +64,6 @@ func NewRateLimiter(cfg *config.RateLimitSpec) *RateLimiter {
 	} else {
 		rl.global = mk()
 	}
-	// store factory in global field via nil marker; perIP buckets created on demand using cfg
-	if rl.global != nil {
-		// ok
-	}
-	// Keep cfg defaults in closures by capturing values in mk.
 	return rl
 }
 

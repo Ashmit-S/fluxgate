@@ -40,7 +40,7 @@ func (h HCM) Handle(c *connctx.ConnCtx) error {
 			if errors.Is(err, io.EOF) {
 				return nil
 			}
-			if ne, ok := err.(net.Error); ok && (ne.Timeout() || !ne.Temporary()) {
+			if ne, ok := err.(net.Error); ok && ne.Timeout() {
 				// Likely due to shutdown closing the conn; respect context.
 				select {
 				case <-c.Context.Done():

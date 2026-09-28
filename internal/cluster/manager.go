@@ -102,8 +102,8 @@ func NewManager(specs []config.ClusterSpec) (*Manager, error) {
 		}
 		// Discovery mode
 		c.discovery = strings.ToLower(strings.TrimSpace(s.Discovery))
-		if s.DnsRefreshSeconds > 0 {
-			c.dnsRefresh = time.Duration(s.DnsRefreshSeconds) * time.Second
+		if s.DNSRefreshSeconds > 0 {
+			c.dnsRefresh = time.Duration(s.DNSRefreshSeconds) * time.Second
 		} else {
 			c.dnsRefresh = 5 * time.Second
 		}

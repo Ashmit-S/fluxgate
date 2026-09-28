@@ -138,7 +138,7 @@ func (u UpstreamProxy) OnRequest(rc *RequestCtx) error {
 	}
 	method := strings.ToUpper(rc.Req.Method)
 	maxAttempts := 1 + pol.maxRetries
-	if pol.idempotentOnly && !(method == http.MethodGet || method == http.MethodHead || method == http.MethodOptions) {
+	if pol.idempotentOnly && method != http.MethodGet && method != http.MethodHead && method != http.MethodOptions {
 		maxAttempts = 1 // no retries for non-idempotent
 	}
 

@@ -66,7 +66,7 @@ type ClusterSpec struct {
 	Name              string              `json:"name"`
 	Endpoints         []string            `json:"endpoints"`           // host:port strings
 	Discovery         string              `json:"discovery,omitempty"` // "strict_dns" or empty (static)
-	DnsRefreshSeconds int                 `json:"dns_refresh_seconds,omitempty"`
+	DNSRefreshSeconds int                 `json:"dns_refresh_seconds,omitempty"`
 	Outlier           *OutlierSpec        `json:"outlier,omitempty"`
 	HealthCheck       *HealthCheckSpec    `json:"health_check,omitempty"`
 	CircuitBreaker    *CircuitBreakerSpec `json:"circuit_breaker,omitempty"`

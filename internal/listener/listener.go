@@ -146,7 +146,7 @@ func (l *Listener) run(ctx context.Context) error {
 				fmt.Printf("listener %q stopped\n", l.name)
 				return nil
 			}
-			if ne, ok := err.(net.Error); ok && ne.Temporary() {
+			if ne, ok := err.(net.Error); ok && ne.Timeout() {
 				time.Sleep(50 * time.Millisecond)
 				continue
 			}
